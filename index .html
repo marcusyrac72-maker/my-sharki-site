@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Be My Valentine? 🦈💖</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   body {
     margin: 0;
@@ -14,14 +13,12 @@
     background: linear-gradient(to bottom, #ffb6c1, #ffdde1, #cceeff);
     height: 100vh;
   }
-
   h1 {
     margin-top: 80px;
     font-size: 45px;
     color: white;
     text-shadow: 0 0 15px #ff69b4;
   }
-
   button {
     padding: 15px 30px;
     font-size: 20px;
@@ -33,19 +30,16 @@
     position: relative;
     z-index: 10;
   }
-
   #yesBtn {
     background: #ff4da6;
     color: white;
     box-shadow: 0 0 20px #ff99cc;
   }
-
   #noBtn {
     background: #444;
     color: white;
     position: absolute;
   }
-
   #message {
     display: none;
     margin-top: 30px;
@@ -54,47 +48,40 @@
     text-shadow: 0 0 20px hotpink;
     animation: glow 2s infinite alternate;
   }
-
   @keyframes glow {
     from { text-shadow: 0 0 10px hotpink; }
     to { text-shadow: 0 0 30px deeppink; }
   }
-
   .heart {
     position: absolute;
     color: pink;
     animation: float 6s linear infinite;
     font-size: 20px;
   }
-
   @keyframes float {
     from { transform: translateY(100vh); }
     to { transform: translateY(-10vh); }
   }
-
   .shark {
     position: absolute;
     font-size: 60px;
     animation: swim 20s linear infinite;
   }
-
   @keyframes swim {
     from { transform: translateX(-100px); }
     to { transform: translateX(110vw); }
   }
 </style>
 </head>
-
 <body>
-
 <h1>Will You Be My Valentine? 🦈💖</h1>
 
-<button id="yesBtn">YAURRR 💕</button>
-<button id="noBtn">NAURR 😢</button>
+<button id="yesBtn">YAURRR😏😏😏 💕</button>
+<button id="noBtn">No 😢</button>
 
-<div id="message">YOU'RE STUCK WITH ME FOREVEAHHH FARTY MWAAA🦈💘</div>
+<div id="message">YOU'RE STUCK WITH ME FOREVERBABYSHORKIII 🦈💘</div>
 
-<!-- Local MP3 (place the MP3 in the same folder as index.html) -->
+<!-- Updated audio src to match your renamed file -->
 <audio id="music" src="Romantic-music.mp3" loop></audio>
 
 <script>
@@ -105,23 +92,20 @@ const music = document.getElementById("music");
 
 let yesSize = 20;
 
-/* YES button grows when NO is clicked */
-noBtn.addEventListener("click", function() {
+noBtn.addEventListener("click", () => {
   yesSize += 10;
   yesBtn.style.fontSize = yesSize + "px";
-  yesBtn.style.padding = (yesSize/2) + "px " + yesSize + "px";
+  yesBtn.style.padding = (yesSize / 2) + "px " + yesSize + "px";
 });
 
-/* NO button runs away on hover */
-noBtn.addEventListener("mouseover", function() {
+noBtn.addEventListener("mouseover", () => {
   const x = Math.random() * (window.innerWidth - 100);
   const y = Math.random() * (window.innerHeight - 100);
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 });
 
-/* YES clicked: show message & play music */
-yesBtn.addEventListener("click", function() {
+yesBtn.addEventListener("click", () => {
   message.style.display = "block";
   yesBtn.style.display = "none";
   noBtn.style.display = "none";
@@ -129,7 +113,6 @@ yesBtn.addEventListener("click", function() {
   music.volume = 0;
   music.play();
 
-  /* Smooth fade-in */
   let fade = setInterval(() => {
     if (music.volume < 1) {
       music.volume += 0.05;
@@ -139,7 +122,6 @@ yesBtn.addEventListener("click", function() {
   }, 200);
 });
 
-/* Floating hearts */
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
@@ -152,7 +134,6 @@ function createHeart() {
 }
 setInterval(createHeart, 500);
 
-/* Sharks swimming */
 function createShark() {
   const shark = document.createElement("div");
   shark.classList.add("shark");
@@ -164,7 +145,5 @@ function createShark() {
 }
 setInterval(createShark, 4000);
 </script>
-
 </body>
 </html>
-
